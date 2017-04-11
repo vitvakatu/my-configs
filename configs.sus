@@ -1,0 +1,16 @@
+card sus {
+  spark card zsh
+  spark card nixos
+}
+
+card zsh {
+  into ~
+
+  .zshrc
+}
+
+card nixos {
+  into /etc/nixos
+
+  configuration.nix
+}
