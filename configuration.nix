@@ -49,6 +49,7 @@
     haskellPackages.stack
     python
     vscode
+    gitkraken
   ];
 
   # List services that you want to enable:
