@@ -50,6 +50,7 @@
     python
     vscode
     gitkraken
+    shutter # Screenshots
   ];
 
   # List services that you want to enable:
