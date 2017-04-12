@@ -14,6 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Setup sound card (enable second one as default)
   boot.blacklistedKernelModules = [ "snd_pcsp" ];
   boot.extraModprobeConfig = ''
     options snd slots=snd-hda-intel
@@ -23,12 +24,14 @@
   networking.hostName = "fumlead-NB"; # Define your hostname.
   networking.networkmanager.enable = true;
 
-  fileSystems."/home" = 
+  fileSystems."/home" =
   { device = "/dev/sda4";
     fsType = "ext4";
-  };  
+  };
 
   nixpkgs.config.allowUnfree = true;
+
+  # Wifi drivers
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
   # Select internationalisation properties.
@@ -53,15 +56,7 @@
     shutter # Screenshots
   ];
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
+  # Disable firewall
   networking.firewall.enable = false;
 
   # Enable CUPS to print documents.
@@ -70,13 +65,14 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.layout = "us";
-  services.xserver.xkbOptions = "eurosign:e";
 
-  # Enable the KDE Desktop Environment.
+  # Enable the XFCE Desktop Environment.
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.xfce.enable = true;
 
+  # Enable zsh
   programs.zsh.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.fumlead = {
     isNormalUser = true;
