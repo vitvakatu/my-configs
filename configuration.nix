@@ -48,6 +48,7 @@
     git
     haskellPackages.stack
     python
+    vscode
   ];
 
   # List services that you want to enable:
