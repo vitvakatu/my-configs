@@ -6,11 +6,12 @@ card sus {
 card zsh {
   into ~
 
-  .zshrc
+  zshrc -> .zshrc
 }
 
 card nixos {
   into /etc/nixos
 
   configuration.nix
+  hardware-configuration.nix
 }

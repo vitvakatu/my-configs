@@ -47,6 +47,7 @@
     wget
     git
     haskellPackages.stack
+    python
   ];
 
   # List services that you want to enable:
